@@ -19,12 +19,12 @@ public struct Queue<T> {
     }
     
     public mutating func enqueue(_ element: T) {
-        array.insert(element, at: 0)
+        array.append(element)
     }
     
     public mutating func dequeue() -> T? {
         guard !isEmpty else { return nil }
-        return array.popLast()
+        return array.removeFirst()
     }
     
     public mutating func peek() -> Array<T> {

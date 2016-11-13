@@ -62,3 +62,11 @@ func insertionSort3<T>(_ array: [T], isOrderedBy: (T, T) -> Bool) -> [T] {
 
 insertionSort3(list, isOrderedBy: <)
 
+
+
+/* 
+ Insertion sort works well with arrays short in length and already sorted arrays but starts to lag when size of array becomes very large numbers.
+ */
+
+
+

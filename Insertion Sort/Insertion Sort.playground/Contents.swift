@@ -44,8 +44,8 @@ func insertionSort2(_ array: [Int]) -> [Int] {
  This can be made generaic with a closure allowing user of function to decide how to sort (low - high, high - low) to account for any type entered (same as how swifts array sort function is implemented):
  */
 
-
 func insertionSort3<T>(_ array: [T], isOrderedBy: (T, T) -> Bool) -> [T] {
+    
     var array = array
     
     for x in 1..<array.count {
@@ -57,7 +57,6 @@ func insertionSort3<T>(_ array: [T], isOrderedBy: (T, T) -> Bool) -> [T] {
         }
         array[y] = temp
     }
-    
     return array
 }
 

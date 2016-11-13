@@ -43,8 +43,6 @@ someQueue.peek()
  When dequeueing, objects in array need to be shifted in memory to condense the array one space (from dequeued element) which takes O(n) operation. To make this more effecient we can replace dequeued element in array with placeholder, O(1) operation (much faster) and shift elements to front only so often. The larger operation being O(n) (when shifting) but because its done only so often, average run time is O(1)
  */
 
-
-
 public struct OptimizedQueue<T> {
     
     fileprivate var array = [T?]()

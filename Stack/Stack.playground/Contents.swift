@@ -18,7 +18,7 @@ public struct Stack<T> {
         array.append(element)
     }
     
-    public mutating func pop(_ element: T) -> T? {
+    public mutating func pop() -> T? {
         return array.popLast()
     }
     
@@ -29,6 +29,9 @@ public struct Stack<T> {
 }
 
 
-var someStack = Stack(array: [])
-someStack.push(element: "Mikael")
-someStack.push(element: "Alem")
+//var someStack = Stack(array: [])
+//someStack.push(element: "Mikael")
+//someStack.push(element: "Alem")
+////someStack.isEmpty
+//someStack.pop()
+//someStack.count

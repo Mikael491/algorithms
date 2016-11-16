@@ -42,9 +42,31 @@ public class LinkedList<T> {
         return head
     }
     
-    //created a computed propeety that grabs last node in list. 
+    //created a computed propeety that grabs last node in list.
+    public var last : Node? {
+        guard var node = head else { return nil }
+        while case let next? = node.next {
+            node = next
+        }
+        return node
+    }
+    
+    //Both last variable and append funcs are O(n) runtime, expensive operations if linked list is very long. This can be made more effecient by a tail method or variable to keep track of last node in list
+    
+    //NOTE: class functions in structs that're generics should be mutating (LinkedList is a class)
+    public func append(_ element: T) {
+        let newNode = Node(value: element)
+        guard head != nil else {
+            head = newNode
+            return
+        }
+        last?.next = newNode
+        newNode.previous = last
+    }
     
 }
+
+
 
 
 

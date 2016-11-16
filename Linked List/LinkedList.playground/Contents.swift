@@ -64,7 +64,26 @@ public class LinkedList<T> {
         newNode.previous = last
     }
     
+    //TODO: Add a count variable 
+    
+    //TODO: Add a method that retrieves a node at a given index
+    
+    //TODO: Add methods for removing elements: all, or given index, last or first
+    
+    //TODO: add method for retrieving previous and next node (helper func) to add node inbetween
+    
+    //TODO: add map and filter methods
+    
+    //TODO: add method to print items in LinkedList
+    
+    //TODO: keep track of count of array to reduce count var runtime to O(1)
+    
+    //TODO: Reverse the linked list (fairly easy if tail functionality is implemented)
+    
+    //TODO: (Final) add tail functionality (keeps track of last node in list)
 }
+
+
 
 
 

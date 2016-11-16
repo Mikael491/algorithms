@@ -64,6 +64,16 @@ public class LinkedList<T> {
         newNode.previous = last
     }
     
+    public var count : Int? {
+        guard head != nil else { return nil }
+        var c = 1
+        let node = head
+        while node?.next != nil {
+            c += 1
+        }
+        return c
+    }
+    
     //TODO: Add a count variable 
     
     //TODO: Add a method that retrieves a node at a given index

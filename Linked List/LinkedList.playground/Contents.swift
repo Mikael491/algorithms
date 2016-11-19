@@ -186,31 +186,37 @@ public class LinkedList<T> {
         }
     }
     
+    //TODO: cureently running infinitely, fix!!!!!!!!!!!!!
+    func reverse() {
+        var node = head
+        while let currentNode = node {
+            node = currentNode.next
+            swap(&currentNode.next, &currentNode.previous)
+            head = currentNode
+        }
+    }
+    
     //TODO: add map and filter methods
     
-    //TODO: add method to print items in LinkedList
-    
     //TODO: keep track of count of array to reduce count var runtime to O(1)
-    
-    //TODO: Reverse the linked list (fairly easy if tail functionality is implemented)
     
     //TODO: (Final) add tail functionality (keeps track of last node in list)
 }
 
-extension LinkedList : CustomStringConvertible {
-    public var description : String {
-        var listValues = "["
-        var node = head
-        
-        while node != nil {
-            listValues += "\(node!.value)"
-            node = node?.next
-            if node != nil { listValues += ","}
-        }
-        
-        return listValues + "]"
-    }
-}
+//extension LinkedList : CustomStringConvertible {
+//    public var description : String {
+//        var listValues = "["
+//        var node = head
+//        
+//        while node? != nil {
+//            listValues += "\(node!.value)"
+//            node = node?.next
+//            if node != nil { listValues += ", "}
+//        }
+//        
+//        return listValues + "]"
+//    }
+//}
 
 
 var newList = LinkedList<String>()
@@ -229,6 +235,7 @@ newList.insertAt("Ben", index: 0)
 
 //newList.removeLast()?.value
 newList.removeFirst()?.value
+
 
 
 

@@ -197,6 +197,21 @@ public class LinkedList<T> {
     //TODO: (Final) add tail functionality (keeps track of last node in list)
 }
 
+extension LinkedList : CustomStringConvertible {
+    public var description : String {
+        var listValues = "["
+        var node = head
+        
+        while node != nil {
+            listValues += "\(node!.value)"
+            node = node?.next
+            if node != nil { listValues += ","}
+        }
+        
+        return listValues + "]"
+    }
+}
+
 
 var newList = LinkedList<String>()
 newList.append("Mikael")

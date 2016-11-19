@@ -196,7 +196,30 @@ public class LinkedList<T> {
         }
     }
     
-    //TODO: add map and filter methods
+    func map<U>(transform: (T) -> U) -> LinkedList<U> {
+        var node = head
+        let result = LinkedList<U>()
+        
+        while node != nil {
+            result.append(transform(node!.value))
+            node = node?.next
+        }
+        return result
+    }
+    
+    func filter(predicate: (T) -> Bool) -> LinkedList<T> {
+        
+        let result = LinkedList<T>()
+        var node = head
+        
+        while node != nil {
+            if predicate((node?.value)!) {
+                result.append((node?.value)!)
+            }
+            node = node?.next
+        }
+        return result
+    }
     
     //TODO: keep track of count of array to reduce count var runtime to O(1)
     
@@ -239,10 +262,11 @@ newList.removeFirst()?.value
 
 
 
+let sewits = newList.filter { (value) -> Bool in
+    return value == "Sewit"
+}
 
-
-
-
+let map = newList.map { s in s.characters.count }
 
 
 

@@ -76,7 +76,7 @@ public class LinkedList<T> {
         return c
     }
     
-    //TODO: Add a method that retrieves a node at a given index
+    //method that retrieves a node at a given index
     func nodeAt(_ index: Int) -> Node? {
         
         if index >= 0 {
@@ -91,7 +91,26 @@ public class LinkedList<T> {
         return nil
     }
     
+    
+    public subscript(index: Int) -> T? {
+        let node = nodeAt(index)
+        guard let myNode = node else { return nil }
+        return myNode.value
+    }
+    
+    
+    //===========================================================================
     //TODO: Add methods for removing elements: all, or given index, last or first
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    //===========================================================================
     
     //TODO: add method for retrieving previous and next node (helper func) to add node inbetween
     
@@ -115,8 +134,6 @@ newList.append("Meladee")
 newList.append("Sewit")
 //newList.count
 //newList.last?.value
-
-
 
 
 

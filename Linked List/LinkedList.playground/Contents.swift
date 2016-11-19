@@ -91,7 +91,7 @@ public class LinkedList<T> {
         return nil
     }
     
-    
+    //subscript to make grabbing value at given index faster via syntax then method above
     public subscript(index: Int) -> T? {
         let node = nodeAt(index)
         guard let myNode = node else { return nil }
@@ -112,7 +112,41 @@ public class LinkedList<T> {
     
     //===========================================================================
     
-    //TODO: add method for retrieving previous and next node (helper func) to add node inbetween
+    //helper method to grab two previous and next node for inserting in between
+    func nodesBeforeAndAfter(_ index: Int) -> (Node?, Node?) {
+        assert(index >= 0)
+            
+        var next = head
+        var prev : Node?
+        var i = index
+        
+        while i > 0 && next != nil {
+            
+            prev = next
+            next = next?.next
+            i -= 1
+        }
+        assert(i == 0)
+        
+        return (prev, next)
+        
+    }
+    
+    //insert inbetween two nodes at given index
+    func insertAt(_ value: T, index: Int) {
+        
+        let (prev, next) = nodesBeforeAndAfter(index)
+        
+        let newNode = Node(value: value)
+        newNode.previous = prev
+        newNode.next = next
+        prev?.next = newNode
+        next?.previous = newNode
+        
+        if prev == nil {
+            head = newNode
+        }
+    }
     
     //TODO: add map and filter methods
     

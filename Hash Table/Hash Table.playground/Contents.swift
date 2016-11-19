@@ -82,7 +82,11 @@ extension HashTable {
         }
         
         set {
-            
+            if let value = newValue {
+                updateValue(value, forKey: key)
+            } else {
+                removeValue(forKey: key)
+            }
         }
         
     }

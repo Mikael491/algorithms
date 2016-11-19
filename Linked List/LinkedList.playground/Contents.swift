@@ -64,19 +64,32 @@ public class LinkedList<T> {
         newNode.previous = last
     }
     
+    //TODO: Add a count variable
     public var count : Int? {
         guard head != nil else { return nil }
         var c = 1
-        let node = head
-        while node?.next != nil {
+        var node = head
+        while case let next? = node?.next {
+            node = next
             c += 1
         }
         return c
     }
     
-    //TODO: Add a count variable 
-    
     //TODO: Add a method that retrieves a node at a given index
+    func nodeAt(_ index: Int) -> Node? {
+        
+        if index >= 0 {
+            var node = head
+            var i = index
+            while node != nil {
+                if i == 0 { return node }
+                node = node?.next
+                i -= 1
+            }
+        }
+        return nil
+    }
     
     //TODO: Add methods for removing elements: all, or given index, last or first
     
@@ -94,6 +107,14 @@ public class LinkedList<T> {
 }
 
 
+var newList = LinkedList<String>()
+newList.append("Mikael")
+newList.head?.value
+newList.append("Alem")
+newList.append("Meladee")
+newList.append("Sewit")
+//newList.count
+//newList.last?.value
 
 
 

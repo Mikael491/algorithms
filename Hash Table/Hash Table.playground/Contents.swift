@@ -22,18 +22,9 @@ public struct HashTable<Key: Hashable, Value> {
 var hashTable1 = HashTable<String, String>(capacity: 20)
 //hashTable1.buckets
 
-//==================================
-//TODO: insert
-//hashTable1["firstName"] = "Mikael"
-
-//TODO: update
-//hashTable1["firstName"] = "Kidan"
-
 //TODO: delete
 //hashTable1["firstName"] = nil
 
-//TODO: lookup
-//let me = hashTable1["firstName"]
 
 extension HashTable {
     
@@ -70,6 +61,16 @@ extension HashTable {
     public mutating func removeValue(forKey key: Key) -> Value? {
         //loop through hashtable chains, if value is found, delete
         
+        let index = self.index(forKey: key)
+        for (i, element) in buckets[index].enumerated() {
+            if element.key == key {
+                let oldValue = element.value
+                buckets[index].remove(at: i)
+                count -= 1
+                return oldValue
+            }
+        }
+        //no element at given key, return nil
         return nil
     }
     

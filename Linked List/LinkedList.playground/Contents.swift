@@ -137,8 +137,12 @@ public class LinkedList<T> {
         return nil
     }
     
-    func removeAt() {
-        
+    func removeAt(index: Int) -> Node? {
+        let node = nodeAt(index)
+        if let node = node {
+            return remove(node: node)
+        }
+        return nil
     }
     
     //===========================================================================

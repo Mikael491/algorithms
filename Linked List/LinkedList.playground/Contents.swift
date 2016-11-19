@@ -102,13 +102,44 @@ public class LinkedList<T> {
     //===========================================================================
     //TODO: Add methods for removing elements: all, or given index, last or first
     
+    func removeAll() {
+        head = nil
+    }
     
+    func remove(node: Node) -> Node {
+        
+        let prev = node.previous
+        let next = node.next
+        
+        if let prev = prev {
+            prev.next = next
+        } else {
+            head = next
+        }
+        next?.previous = prev
+        
+        node.next = nil
+        node.previous = nil
+        return node
+    }
     
+    func removeLast() -> Node? {
+        if !isEmpty {
+            return remove(node: last!)
+        }
+        return nil
+    }
     
+    func removeFirst() {
+        
+    }
     
+    func removeAt() {
+        
+    }
     
-    
-    
+    //===========================================================================
+    //Description method to print elements in LinkedList array style
     
     //===========================================================================
     
@@ -171,10 +202,10 @@ newList.append("Sewit")
 
 
 
+newList.insertAt("Terry", index: 1)
+newList.insertAt("Ben", index: 0)
 
-
-
-
+//newList.removeLast()?.value
 
 
 

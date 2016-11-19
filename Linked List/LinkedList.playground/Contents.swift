@@ -130,8 +130,11 @@ public class LinkedList<T> {
         return nil
     }
     
-    func removeFirst() {
-        
+    func removeFirst() -> Node? {
+        if !isEmpty {
+            return remove(node: first!)
+        }
+        return nil
     }
     
     func removeAt() {
@@ -206,7 +209,7 @@ newList.insertAt("Terry", index: 1)
 newList.insertAt("Ben", index: 0)
 
 //newList.removeLast()?.value
-
+newList.removeFirst()?.value
 
 
 

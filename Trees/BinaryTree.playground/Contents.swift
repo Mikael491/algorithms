@@ -26,10 +26,22 @@ extension BinaryTree {
     }
     
     //TODO: PreOrder Search
-    
+    func traversePreOrder(process: (T) -> Void) {
+        if case let .Node(left, value, right) = self {
+            left.traversePreOrder(process: process)
+            right.traversePreOrder(process: process)
+            process(value)
+        }
+    }
     
     //TODO: PostOrder Search
-    
+    func traversePostOrder(process: (T) -> Void) {
+        if case let .Node(left, value, right) = self {
+            process(value)
+            left.traversePostOrder(process: process)
+            right.traversePostOrder(process: process)
+        }
+    }
 }
 
 let node2 = BinaryTree.Node(.Empty, 2, .Empty)
@@ -45,7 +57,7 @@ let node8 = BinaryTree.Node(node5, 8, node4)
 
 
 
-node8.traverseInOrder { (int) in
+node5.traverseInOrder { (int) in
     print(int)
 }
 

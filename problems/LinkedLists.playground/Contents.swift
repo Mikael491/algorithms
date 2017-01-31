@@ -26,8 +26,36 @@ class LinkedList<T> {
     public var last : Node? {
         return tail
     }
+    
+    public var count : Int {
+        if var node = head {
+            var c = 1
+            while case let next? = node.next {
+                c += 1
+                node = next
+            }
+            return c
+        } else {
+            return 0
+        }
+    }
+    
+    public func append(value: T) {
+        let newNode = Node(value: value)
+        if let node = tail {
+            node.next = newNode
+            newNode.prev = node
+            self.tail = newNode
+        } else {
+            head = newNode
+            tail = newNode
+        }
+    }
 }
 
 var myList = LinkedList<String>()
-
+myList.append(value: "Mikael")
+myList.append(value: "Nelson")
+myList.append(value: "John")
+myList.count
 

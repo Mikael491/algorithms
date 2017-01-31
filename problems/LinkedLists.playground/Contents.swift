@@ -74,14 +74,61 @@ class LinkedList<T> {
     
 }
 
-var myList = LinkedList<String>()
-myList.append(value: "Mikael")
-myList.append(value: "Nelson")
-myList.append(value: "John")
-myList.append(value: "Jessica")
-myList.length
-//myList.count
+//var myList = LinkedList<String>()
+//myList.append(value: "Mikael")
+//myList.append(value: "Nelson")
+//myList.append(value: "John")
+//myList.append(value: "Jessica")
+//myList.length
+////myList.count
+//
+//myList.remove(node: myList.first!)
+//myList.length
+//myList.first?.value
 
-myList.remove(node: myList.first!)
-myList.length
-myList.first?.value
+
+
+
+var array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+func fizzBuzz(array: [Int]) {
+    for num in array {
+        if num % 3 == 0 && num % 5 == 0 {
+            print("FizzBuzz")
+        } else if num % 5 == 0 {
+            print("Buzz")
+        } else if num % 3 == 0 {
+            print("Fizz")
+        } else {
+            print("...")
+        }
+    }
+}
+
+fizzBuzz(array: array)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

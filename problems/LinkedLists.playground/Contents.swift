@@ -14,13 +14,7 @@ class LinkedList<T> {
     public typealias Node = ListNode<T>
     private var head : Node?
     private var tail : Node?
-    
-    //Internal count keeper that is incremented everytime node is added in order to reduce time of counter
     private var nodeCount = 0
-    
-    public var isEmpty: Bool {
-        return head == nil
-    }
     
     public var first : Node? {
         return head
@@ -30,7 +24,10 @@ class LinkedList<T> {
         return tail
     }
     
-    //Below is an O(N) implementation of how to get count of list
+    public var isEmpty : Bool {
+        return head == nil
+    }
+    
     public var count : Int {
         if var node = head {
             var c = 1
@@ -61,12 +58,29 @@ class LinkedList<T> {
             tail = newNode
         }
     }
+    
+    public func remove(node: Node) {
+        let prev = node.prev
+        let next = node.next
+        
+        if let prev = prev {
+            prev.next = next
+        } else {
+            head = next
+        }
+        next?.prev = prev
+        nodeCount -= 1
+    }
+    
 }
 
 var myList = LinkedList<String>()
-//myList.append(value: "Mikael")
-//myList.append(value: "Nelson")
-//myList.append(value: "John")
-//myList.append(value: "Jessica")
-//myList.length
+myList.append(value: "Mikael")
+myList.append(value: "Nelson")
+myList.append(value: "John")
+myList.append(value: "Jessica")
+myList.length
+//myList.count
 
+//myList.remove(node: myList.first!)
+myList.length

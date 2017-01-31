@@ -82,5 +82,6 @@ myList.append(value: "Jessica")
 myList.length
 //myList.count
 
-//myList.remove(node: myList.first!)
+myList.remove(node: myList.first!)
 myList.length
+myList.first?.value

@@ -72,19 +72,34 @@ class LinkedList<T> {
         nodeCount -= 1
     }
     
+    public func nodeAt(index: Int) -> Node? {
+        if index >= 0 {
+            var node = head
+            var i = index
+            while node != nil {
+                if i == 0 { return node }
+                i -= 1
+                node = node?.next
+            }
+        }
+        return nil
+    }
 }
 
-//var myList = LinkedList<String>()
-//myList.append(value: "Mikael")
-//myList.append(value: "Nelson")
-//myList.append(value: "John")
-//myList.append(value: "Jessica")
-//myList.length
-////myList.count
-//
-//myList.remove(node: myList.first!)
-//myList.length
-//myList.first?.value
+var myList = LinkedList<String>()
+myList.append(value: "Mikael")
+myList.append(value: "Nelson")
+myList.append(value: "John")
+myList.append(value: "Jessica")
+myList.length
+//myList.count
+
+myList.remove(node: myList.first!)
+myList.length
+myList.first?.value
+myList.append(value: "Mikael")
+myList.nodeAt(index: 1)?.value
+myList.length
 
 
 
@@ -104,7 +119,7 @@ func fizzBuzz(array: [Int]) {
     }
 }
 
-fizzBuzz(array: array)
+//fizzBuzz(array: array)
 
 
 

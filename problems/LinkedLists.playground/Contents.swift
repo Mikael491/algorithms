@@ -15,6 +15,9 @@ class LinkedList<T> {
     private var head : Node?
     private var tail : Node?
     
+    //Internal count keeper that is incremented everytime node is added in order to reduce time of counter
+    private var nodeCount = 0
+    
     public var isEmpty: Bool {
         return head == nil
     }
@@ -27,6 +30,7 @@ class LinkedList<T> {
         return tail
     }
     
+    //Below is an O(N) implementation of how to get count of list
     public var count : Int {
         if var node = head {
             var c = 1
@@ -40,13 +44,19 @@ class LinkedList<T> {
         }
     }
     
+    public var length : Int {
+        return nodeCount
+    }
+    
     public func append(value: T) {
         let newNode = Node(value: value)
         if let node = tail {
+            nodeCount += 1
             node.next = newNode
             newNode.prev = node
             self.tail = newNode
         } else {
+            nodeCount += 1
             head = newNode
             tail = newNode
         }
@@ -54,8 +64,9 @@ class LinkedList<T> {
 }
 
 var myList = LinkedList<String>()
-myList.append(value: "Mikael")
-myList.append(value: "Nelson")
-myList.append(value: "John")
-myList.count
+//myList.append(value: "Mikael")
+//myList.append(value: "Nelson")
+//myList.append(value: "John")
+//myList.append(value: "Jessica")
+//myList.length
 
